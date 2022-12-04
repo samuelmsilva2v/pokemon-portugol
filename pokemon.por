@@ -155,8 +155,10 @@ programa
 				pare
 
 				caso contrario:
-					escreva("Você perdeu o turno. Escolha uma opção válida.")
-					u.aguarde(1000)	
+					limpa()
+					escreva("Você perdeu o turno. Escolha uma opção válida.\n")
+					linha()
+					u.aguarde(2000)	
 			}
 			
 			se(vida_mewtwo >= 0){
@@ -180,7 +182,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 3637; 
+ * @POSICAO-CURSOR = 3218; 
  * @DOBRAMENTO-CODIGO = [8, 12, 27];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
