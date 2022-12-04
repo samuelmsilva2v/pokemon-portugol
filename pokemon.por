@@ -1,7 +1,7 @@
 programa
 {
-	inclua biblioteca Util --> u
-	cadeia jogador, pokemon = ""
+	inclua biblioteca Util --> u
+	cadeia jogador, pokemon = ""
 	caracter opcao, certeza = 'n', movimento
 	inteiro vida_jogador = 0, ataque_jogador = 0, cura_jogador = 0, vida_mewtwo = 250, ataque_mewtwo = 40
 	
@@ -88,6 +88,18 @@ programa
 					limpa()
 					pare
 
+				caso 'K':
+				caso 'k':
+					pokemon = "Shiny Kadabra"
+					vida_jogador = 500
+					ataque_jogador = 70
+					cura_jogador = 10
+					pokemonEscolhido()
+					linha()
+					continuar()
+					limpa()
+					pare
+
 				caso contrario:
 					escreva("Escolha uma opção válida.\n")					
 			}
@@ -109,11 +121,13 @@ programa
 		u.aguarde(2000)
 		limpa()
 
-		escreva(pokemon+", eu escolho você!")
+		escreva(pokemon+", eu escolho você!\n\n")
 		u.aguarde(2000)
 
 		enquanto(vida_mewtwo > 0 e vida_jogador > 0){
-			escreva("\n\nVocê possui "+vida_jogador+" pontos de vida.\n")
+			escreva("Você possui "+vida_jogador+" pontos de vida.\n")
+			escreva("Mewtwo possui "+vida_mewtwo+" pontos de vida.\n")
+			linha()
 			escreva("\nO que deseja fazer nesse turno? ")
 			escreva("\nA - Atacar")
 			escreva("\nB - Curar\n")
@@ -123,20 +137,21 @@ programa
 				caso 'A':
 				caso 'a':
 					vida_mewtwo = vida_mewtwo - ataque_jogador
-					escreva("Você atacou Mewtwo e causou "+ataque_jogador+" de dano.\n")
-					linha()
-					mewtwo()
 					limpa()
+					escreva("Você atacou Mewtwo e causou "+ataque_jogador+" de dano.\n")
+					u.aguarde(500)
+					linha()
+					u.aguarde(1500)
 				pare
 
 				caso 'B':
 				caso 'b':
 					vida_jogador = vida_jogador + cura_jogador
-					escreva("Você curou "+cura_jogador+" pontos de vida.\n")
-					linha()
-					pokemonEscolhido()
-					u.aguarde(1000)
 					limpa()
+					escreva("Você curou "+cura_jogador+" pontos de vida.\n")
+					u.aguarde(500)
+					linha()
+					u.aguarde(1500)
 				pare
 
 				caso contrario:
@@ -146,10 +161,18 @@ programa
 			
 			se(vida_mewtwo >= 0){
 				vida_jogador = vida_jogador - ataque_mewtwo
-				escreva("Mewtwo atacou você e causou "+ataque_mewtwo+" de dano.")
+				escreva("Mewtwo atacou você e causou "+ataque_mewtwo+" de dano.\n")
+				u.aguarde(500)
+				linha()
+				u.aguarde(1000)
 				limpa()
 		}
 		}
+
+		escreva("Mewtwo desmaiou!\n")
+		u.aguarde(1000)
+		limpa()
+		escreva("Parabéns, você conseguiu a insígnia dos Kadabras! \n")
 	}
 }
 /* $$$ Portugol Studio $$$ 
@@ -157,8 +180,8 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 3153; 
- * @DOBRAMENTO-CODIGO = [8, 12, 17, 27];
+ * @POSICAO-CURSOR = 3637; 
+ * @DOBRAMENTO-CODIGO = [8, 12, 27];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
